@@ -1,6 +1,6 @@
-# Template Esonero UDP - Corso di Reti di Calcolatori - ITPS A-L
+# Esonero UDP - Corso di Reti di Calcolatori - ITPS A-L 2025-26
 
-Template repository per l'assegnazione della prima prova di esonero: client-server UDP.
+Repository per l'assegnazione della prima prova di esonero: client-server UDP.
 
 
 ## Descrizione
