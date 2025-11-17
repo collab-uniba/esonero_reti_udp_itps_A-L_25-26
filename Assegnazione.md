@@ -153,15 +153,11 @@ Utilizzare direttive di preprocessore (`#ifdef _WIN32`) per gestire le differenz
 - Validazione corretta degli input utente
 - Gestione appropriata degli errori di sistema
 
-### 4. Socket UDP
-- Utilizzare `SOCK_DGRAM` per creare socket UDP
-- Gestire correttamente gli indirizzi con `struct sockaddr_in`
-
-### 5. Dimensioni Datagrammi
+### 4. Dimensioni Datagrammi
 - Dimensione massima datagramma: 512 byte
 - Verificare che le strutture dati non eccedano questo limite
 
-### 6. Compatibilità Eclipse CDT
+### 5. Compatibilità Eclipse CDT
 Il progetto deve essere compatibile con Eclipse CDT e includere i file di configurazione necessari (.project, .cproject).
 
 ## Consegna
