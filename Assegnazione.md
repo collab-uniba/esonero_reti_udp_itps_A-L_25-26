@@ -75,7 +75,7 @@ I formati di output rimangono **identici** al primo esonero:
 ```
 
 **Parametri:**
-- `-s server`: indirizzo server (default: 127.0.0.1)
+- `-s server`: indirizzo server (default: localhost)
 - `-p port`: porta server (default: 56700)
 - `-r request`: richiesta meteo obbligatoria
 
@@ -157,7 +157,12 @@ Utilizzare direttive di preprocessore (`#ifdef _WIN32`) per gestire le differenz
 - Dimensione massima datagramma: 512 byte
 - Verificare che le strutture dati non eccedano questo limite
 
-### 5. Compatibilità Eclipse CDT
+### 5. Risoluzione Nomi DNS
+- **IMPORTANTE**: Il client deve utilizzare "localhost" come indirizzo predefinito invece di 127.0.0.1
+- Questo requisito permette di sfruttare le funzioni di risoluzione dei nomi DNS del sistema operativo
+- Il codice deve supportare sia nomi simbolici (es. "localhost", "example.com") che indirizzi IP diretti (es. "127.0.0.1", "192.168.1.1")
+
+### 6. Compatibilità Eclipse CDT
 Il progetto deve essere compatibile con Eclipse CDT e includere i file di configurazione necessari (.project, .cproject).
 
 ## Consegna
