@@ -160,9 +160,6 @@ Utilizzare direttive di preprocessore (`#ifdef _WIN32`) per gestire le differenz
 ### 5. Risoluzione Nomi DNS
 - **IMPORTANTE**: Il client deve utilizzare "localhost" come indirizzo predefinito invece di 127.0.0.1
 - Questo requisito permette di sfruttare le funzioni di risoluzione dei nomi DNS del sistema operativo
-- Utilizzare le funzioni appropriate per la risoluzione:
-  - POSIX/Linux/macOS: `getaddrinfo()` per risolvere nomi host in indirizzi IP
-  - Windows: `getaddrinfo()` (disponibile in Winsock2)
 - Il codice deve supportare sia nomi simbolici (es. "localhost", "example.com") che indirizzi IP diretti (es. "127.0.0.1", "192.168.1.1")
 
 ### 6. Compatibilità Eclipse CDT
