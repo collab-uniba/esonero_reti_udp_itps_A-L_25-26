@@ -182,46 +182,10 @@ Il progetto deve essere compatibile con Eclipse CDT e includere i file di config
 ## Consegna
 
 - **Scadenza:** 28 novembre 2025, ore 23:59:59
-- **Formato:** link repository GitHub pubblico contenente:
-  - Codice sorgente completo
-  - File `protocol.h`
-  - Makefile o script di build
-  - File di progetto Eclipse (.project, .cproject)
-  - README.md con istruzioni di compilazione ed esecuzione
+- **Formato:** link repository GitHub pubblico
 - **Note:**
   - Una sola consegna per coppia di studenti
-  - Utilizzare il form di consegna fornito dal docente
-  - Testare il codice su almeno due piattaforme diverse
 
-## Suggerimenti Implementativi
-
-### Per il Client
-```c
-// Esempio di impostazione timeout
-struct timeval timeout;
-timeout.tv_sec = 3;
-timeout.tv_usec = 0;
-setsockopt(socket_fd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout));
-```
-
-### Per il Server
-```c
-// Il server usa recvfrom per ottenere l'indirizzo del client
-struct sockaddr_in client_addr;
-socklen_t client_len = sizeof(client_addr);
-recvfrom(socket_fd, buffer, size, 0, (struct sockaddr*)&client_addr, &client_len);
-
-// Risponde allo stesso indirizzo
-sendto(socket_fd, response, size, 0, (struct sockaddr*)&client_addr, client_len);
-```
-
-## Criteri di Valutazione
-
-- **Correttezza funzionale** (40%): il programma funziona come specificato
-- **Gestione UDP** (25%): corretta implementazione del protocollo UDP con timeout e ritrasmissione
-- **Portabilità** (15%): il codice compila ed esegue su Windows, Linux e macOS
-- **Qualità del codice** (10%): leggibilità, commenti, organizzazione
-- **Gestione errori** (10%): validazione input, gestione errori di rete e sistema
 
 ---
 
