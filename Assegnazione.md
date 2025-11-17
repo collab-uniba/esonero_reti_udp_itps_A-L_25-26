@@ -14,7 +14,6 @@ Nel passaggio da TCP a UDP, dovrete modificare **solo il livello di trasporto**,
 **DA MODIFICARE:**
 - Tipo di socket
 - Chiamate di sistema
-- Gestione affidabilità (implementare timeout e ritrasmissione lato client)
 
 **NON MODIFICARE:**
 - Protocollo applicativo: strutture `struct request` e `struct response`
@@ -28,7 +27,6 @@ Nel passaggio da TCP a UDP, dovrete modificare **solo il livello di trasporto**,
 - **Connectionless**: UDP non stabilisce una connessione prima dello scambio dati
 - **Inaffidabilità**: UDP non garantisce la consegna dei pacchetti, né il loro ordine
 - **Dimensione pacchetti**: Considerare la dimensione massima dei datagrammi UDP
-- **Timeout e ritrasmissione**: Necessario implementare meccanismi di gestione della perdita di pacchetti
 
 ## Protocollo Applicativo
 
@@ -68,7 +66,6 @@ I formati di output rimangono **identici** al primo esonero:
 **Errori:**
 - `status 1`: "Città non disponibile"
 - `status 2`: "Richiesta non valida"
-- **Nuovo**: Timeout: "Timeout: nessuna risposta dal server" (specifico per UDP)
 
 ## Interfaccia Client
 
@@ -84,17 +81,11 @@ I formati di output rimangono **identici** al primo esonero:
 
 **Flusso operativo:**
 1. Analizza argomenti da linea di comando
-2. Crea socket UDP 
+2. Crea socket UDP
 3. Invia richiesta al server
-4. Attende risposta con timeout (3 secondi)
-5. In caso di timeout, ritrasmette la richiesta (massimo 3 tentativi totali)
-6. Riceve risposta
-7. Visualizza risultato formattato
-8. Chiude socket
-
-**Gestione errori:**
-- Dopo 3 tentativi senza risposta, il client deve terminare con un messaggio di errore
-- Implementare `setsockopt()` con `SO_RCVTIMEO` per il timeout di ricezione
+4. Riceve risposta
+5. Visualizza risultato formattato
+6. Chiude socket
 
 ## Interfaccia Server
 
@@ -164,19 +155,13 @@ Utilizzare direttive di preprocessore (`#ifdef _WIN32`) per gestire le differenz
 
 ### 4. Socket UDP
 - Utilizzare `SOCK_DGRAM` per creare socket UDP
-- Implementare timeout sul socket di ricezione del client
 - Gestire correttamente gli indirizzi con `struct sockaddr_in`
 
-### 5. Timeout e Ritrasmissione
-- Timeout di ricezione: 3 secondi
-- Numero massimo di ritrasmissioni: 3 tentativi totali
-- Messaggio di errore appropriato se tutti i tentativi falliscono
-
-### 6. Dimensioni Datagrammi
+### 5. Dimensioni Datagrammi
 - Dimensione massima datagramma: 512 byte
 - Verificare che le strutture dati non eccedano questo limite
 
-### 7. Compatibilità Eclipse CDT
+### 6. Compatibilità Eclipse CDT
 Il progetto deve essere compatibile con Eclipse CDT e includere i file di configurazione necessari (.project, .cproject).
 
 ## Consegna
