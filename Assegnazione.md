@@ -3,7 +3,7 @@
 ## Obiettivo Generale
 **Migrare** l'applicazione client/server del servizio meteo dal protocollo **TCP** (realizzata nel primo esonero) al protocollo **UDP** (User Datagram Protocol).
 
-L'obiettivo è prendere il codice già scritto per l'assegnazione TCP e modificarlo per utilizzare UDP, mantenendo invariato il protocollo applicativo (strutture dati, formati, funzionalità).
+L'obiettivo è modificare il codice già scritto per l'assegnazione TCP in modo da usare UDP come protocollo di trasporto, mantenendo invariato il protocollo applicativo (strutture dati, formati, funzionalità).
 
 ## Cosa Cambia nella Migrazione da TCP a UDP
 
