@@ -31,7 +31,8 @@ Il repository è organizzato in due progetti Eclipse CDT separati:
 **⚠️ IMPORTANTE - Struttura del Progetto:**
 - **NON modificare** i nomi dei file esistenti (`main.c`, `protocol.h`)
 - **NON modificare** i nomi delle cartelle esistenti (`client-project`, `server-project`, `src`)
-- **NON modificare** i file di configurazione Eclipse (`.project`, `.cproject`)
+- **NON eliminare o modificare a
+  mano** i file di configurazione Eclipse (`.project`, `.cproject`)
 - È possibile **aggiungere nuovi file** se necessario (es. file `.c` o `.h` aggiuntivi)
 
 ## Come Utilizzare il Repository
