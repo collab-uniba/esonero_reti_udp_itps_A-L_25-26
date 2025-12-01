@@ -34,21 +34,7 @@ void clearwinsock() {
 
 int main(int argc, char *argv[]) {
 
-	/*
-	 * ====================================================================
-	 * TODO 1: Parse command line arguments
-	 * ====================================================================
-	 * The client must accept the following arguments:
-	 *   -s <server>  : Server hostname or IP address (default: "localhost")
-	 *   -p <port>    : Server port number (default: 56700)
-	 *   -r <request> : Weather request in format "type city"
-	 *                  where type is 't', 'h', 'w', or 'p'
-	 *
-	 * Example: ./client-project -s localhost -p 56700 -r "t Roma"
-	 *
-	 * Hint: Use getopt() or manual parsing with strcmp()
-	 * Validate that -r argument is provided (it's mandatory)
-	 */
+	// TODO: Implement client logic
 
 #if defined WIN32
 	// Initialize Winsock
@@ -60,94 +46,23 @@ int main(int argc, char *argv[]) {
 	}
 #endif
 
-	/*
-	 * ====================================================================
-	 * TODO 2: Create UDP socket
-	 * ====================================================================
-	 * Create a datagram socket using socket()
-	 *
-	 * Example:
-	 *   int my_socket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
-	 *   if (my_socket < 0) {
-	 *       printf("Socket creation failed\n");
-	 *       return -1;
-	 *   }
-	 */
 	int my_socket;
 
-	/*
-	 * ====================================================================
-	 * TODO 3: Configure server address
-	 * ====================================================================
-	 * Set up the server address structure with:
-	 *   - Address family (AF_INET)
-	 *   - Port number (from command line or default)
-	 *   - IP address (use getaddrinfo() for hostname resolution)
-	 *
-	 * Example:
-	 *   struct sockaddr_in server_addr;
-	 *   memset(&server_addr, 0, sizeof(server_addr));
-	 *   server_addr.sin_family = AF_INET;
-	 *   server_addr.sin_port = htons(port);
-	 *
-	 * For hostname resolution, use getaddrinfo() instead of inet_addr()
-	 * to support both hostnames (e.g., "localhost") and IP addresses
-	 */
+	// TODO: Create UDP socket
+	// my_socket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
-	/*
-	 * ====================================================================
-	 * TODO 4: Prepare and send weather request
-	 * ====================================================================
-	 * 1. Parse the request string (e.g., "t Roma") to extract type and city
-	 * 2. Create a struct request and populate it
-	 * 3. Convert struct fields to network byte order (htonl, htons)
-	 * 4. Send the request using sendto()
-	 *
-	 * Example:
-	 *   struct request req;
-	 *   req.type = 't';  // parsed from request string
-	 *   strncpy(req.city, "Roma", MAX_CITY_LENGTH);
-	 *
-	 *   // Convert to network byte order before sending
-	 *   // (handle multi-byte fields appropriately)
-	 *
-	 *   int bytes_sent = sendto(my_socket, &req, sizeof(req), 0,
-	 *                           (struct sockaddr*)&server_addr, sizeof(server_addr));
-	 */
+	// TODO: Configure server address
+	// struct sockaddr_in server_addr;
+	// memset(&server_addr, 0, sizeof(server_addr));
+	// server_addr.sin_family = AF_INET;
+	// server_addr.sin_port = htons(SERVER_PORT);
+	// server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
 
-	/*
-	 * ====================================================================
-	 * TODO 5: Receive and process server response
-	 * ====================================================================
-	 * 1. Receive the response using recvfrom()
-	 * 2. Convert struct fields from network byte order (ntohl, ntohs)
-	 * 3. Check the status field and display appropriate message
-	 *
-	 * Output format:
-	 *   "Ricevuto risultato dal server [IP]. [message]"
-	 *
-	 * Where [message] depends on status:
-	 *   - status 0: "CityName: Type = value unit"
-	 *   - status 1: "Città non disponibile"
-	 *   - status 2: "Richiesta non valida"
-	 *
-	 * Example:
-	 *   struct response resp;
-	 *   struct sockaddr_in from_addr;
-	 *   int from_len = sizeof(from_addr);
-	 *
-	 *   int bytes_received = recvfrom(my_socket, &resp, sizeof(resp), 0,
-	 *                                 (struct sockaddr*)&from_addr, &from_len);
-	 *
-	 *   // Convert from network byte order
-	 *   // Print formatted output based on resp.status
-	 */
+	// TODO: Implement communication logic (no connect needed for UDP)
+	// sendto(my_socket, buffer, strlen(buffer), 0, (struct sockaddr*)&server_addr, sizeof(server_addr));
+	// recvfrom(my_socket, buffer, BUFFER_SIZE, 0, (struct sockaddr*)&server_addr, &addr_len);
 
-	/*
-	 * ====================================================================
-	 * TODO 6: Cleanup and close socket
-	 * ====================================================================
-	 */
+	// TODO: Close socket
 	// closesocket(my_socket);
 
 	printf("Client terminated.\n");
