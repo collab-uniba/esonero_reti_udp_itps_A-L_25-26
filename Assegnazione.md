@@ -56,7 +56,7 @@ struct response {
 **IMPORTANTE**: Durante la serializzazione e deserializzazione delle strutture dati, è necessario gestire correttamente il network byte order per i campi numerici:
 
 - **`unsigned int status`**: usare `htonl()` prima dell'invio e `ntohl()` dopo la ricezione
-- **`float value`**: convertire in formato network byte order usando la tecnica mostrata a lezione (conversione float → uint32_t → htonl/ntohl → float)
+- **`float value`**: convertire in formato network byte order usando la tecnica mostrata a lezione (conversione `float` → `uint32_t` → `htonl/ntohl` → `float`)
 - **`char type` e `char city[]`**: essendo campi a singolo byte, non richiedono conversione
 
 Esempio conversione float (come mostrato a lezione):
