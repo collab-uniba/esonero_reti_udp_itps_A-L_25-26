@@ -4,7 +4,7 @@
  * UDP Server - Template for Computer Networks assignment
  *
  * This file contains the boilerplate code for a UDP server
- * portable across Windows, Linux and macOS.
+ * portable across Windows, Linux, and macOS.
  */
 
 #if defined WIN32
@@ -49,29 +49,12 @@ int main(int argc, char *argv[]) {
 	int my_socket;
 
 	// TODO: Create UDP socket
-	// my_socket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
 	// TODO: Configure server address
-	// struct sockaddr_in server_addr;
-	// memset(&server_addr, 0, sizeof(server_addr));
-	// server_addr.sin_family = AF_INET;
-	// server_addr.sin_port = htons(SERVER_PORT);
-	// server_addr.sin_addr.s_addr = INADDR_ANY;
-
+	
 	// TODO: Bind socket
-	// bind(my_socket, (struct sockaddr*)&server_addr, sizeof(server_addr));
 
-	// TODO: Implement datagram reception loop (no listen/accept for UDP)
-	// struct sockaddr_in client_addr;
-	// int client_addr_len = sizeof(client_addr);
-	// while (1) {
-	//     // Receive datagram from client
-	//     int bytes_received = recvfrom(my_socket, buffer, BUFFER_SIZE, 0,
-	//                                   (struct sockaddr*)&client_addr, &client_addr_len);
-	//     // Process and send response
-	//     sendto(my_socket, response, strlen(response), 0,
-	//            (struct sockaddr*)&client_addr, client_addr_len);
-	// }
+	// TODO: Implement UDP datagram reception loop 
 
 	printf("Server terminated.\n");
 
