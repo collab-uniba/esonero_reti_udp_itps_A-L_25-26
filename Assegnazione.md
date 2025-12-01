@@ -216,13 +216,10 @@ Richiesta ricevuta da localhost (ip 127.0.0.1): type='t', city='Roma'
 ```
 
 > [!NOTE]
-> **Risoluzione DNS del client (server):**
-> - Il server deve ottenere il nome host del client tramite **reverse DNS lookup** del suo indirizzo IP
-> - Utilizzare `getnameinfo()` sull'indirizzo acquisito da `recvfrom()`
-> - Se il reverse lookup fallisce, utilizzare l'indirizzo IP come nome host nel log
+> **Risoluzione DNS:**
+> - Così come il client, anche il server deve usare opportunamente le funzioni di **DNS lookup** a partire da nome host o indirizzo.
 
 **Note:**
-- Non c'è fase di "connessione" o "accettazione" come in TCP
 - Ogni richiesta è indipendente e stateless
 - Il server non termina autonomamente, rimane in esecuzione indefinitamente e può essere interrotto solo forzatamente tramite **Ctrl+C** (SIGINT)
 
@@ -257,9 +254,7 @@ Le città supportate rimangono **identiche** al primo esonero. Il server deve ri
 ## Requisiti Tecnici
 
 ### 1. Organizzazione del Codice
-- **File header** `protocol.h`: riutilizzare lo stesso file del primo esonero, che contiene le definizioni delle strutture dati (`struct request`, `struct response`), i prototipi delle funzioni e le costanti condivise tra client e server
-- **File sorgente client**: `client.c` nell'apposita directory - modificare solo le parti relative ai socket
-- **File sorgente server**: `server.c` nell'apposita directory - modificare solo le parti relative ai socket
+- Non modificate nomi dei file e delle cartelle fornite nel progetto template
 - Potete aggiungere nuovi file .h e .c se necessario
 
 ### 2. Portabilità Multi-Piattaforma
@@ -274,11 +269,10 @@ Il codice deve compilare ed eseguire correttamente su:
 ### 4. Risoluzione Nomi DNS
 Il codice deve supportare **sia nomi simbolici** (es. `localhost`) che **indirizzi IP** (es. `127.0.0.1`) come parametro `-s` del client. Vedere le note nelle sezioni "Formati di Output" e "Logging delle Richieste" per i dettagli sulla risoluzione e reverse lookup DNS
 
-### 5. Gestione Memoria e Sicurezza
-- Nessun buffer overflow
-- Nessun memory leak
+### 5. Gestione errori
+- Gestione appropriata degli errori
+- Nessun crash
 - Validazione corretta degli input utente
-- Gestione appropriata degli errori di sistema
 - **Validazione lunghezza nome città (lato client)**: se il nome della città supera 63 caratteri (64 incluso il null-terminator), il client **deve segnalare un errore all'utente e NON inviare** la richiesta al server
 
 ### 6. Compatibilità Eclipse CDT
@@ -312,7 +306,7 @@ Il progetto deve essere compatibile con Eclipse CDT e includere i file di config
 
 ## Consegna
 
-- **Scadenza**: xx dicembre 2025, entro h. 23.59.59
+- **Scadenza**: 21 dicembre 2025, entro le ore 23.59.59
 - **Form di prenotazione / consegna**: [link](https://forms.gle/P4kWH3M3zjXjsWWP7)
 - **Formato**: Link a repository GitHub accessibile pubblicamente
 - **Note**:
