@@ -4,7 +4,7 @@
  * UDP Client - Template for Computer Networks assignment
  *
  * This file contains the boilerplate code for a UDP client
- * portable across Windows, Linux and macOS.
+ * portable across Windows, Linux, and macOS.
  */
 
 #if defined WIN32
@@ -49,18 +49,10 @@ int main(int argc, char *argv[]) {
 	int my_socket;
 
 	// TODO: Create UDP socket
-	// my_socket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
 	// TODO: Configure server address
-	// struct sockaddr_in server_addr;
-	// memset(&server_addr, 0, sizeof(server_addr));
-	// server_addr.sin_family = AF_INET;
-	// server_addr.sin_port = htons(SERVER_PORT);
-	// server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
 
-	// TODO: Implement communication logic (no connect needed for UDP)
-	// sendto(my_socket, buffer, strlen(buffer), 0, (struct sockaddr*)&server_addr, sizeof(server_addr));
-	// recvfrom(my_socket, buffer, BUFFER_SIZE, 0, (struct sockaddr*)&server_addr, &addr_len);
+	// TODO: Implement UDP communication logic
 
 	// TODO: Close socket
 	// closesocket(my_socket);
